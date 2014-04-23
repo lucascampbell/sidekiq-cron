@@ -169,11 +169,11 @@ module Sidekiq
         @status = args['status'] || status_from_redis
 
         #set last enqueue time - from args or from existing job
-        if args['last_enqueue_time'] && !args['last_enqueue_time'].empty?
-          @last_enqueue_time = Time.parse(args['last_enqueue_time'])
-        else
+        # if args['last_enqueue_time'] && !args['last_enqueue_time'].empty?
+        #   @last_enqueue_time = Time.parse(args['last_enqueue_time'])
+        # else
           @last_enqueue_time = last_enqueue_time_from_redis
-        end
+        #end
 
         #get right arguments for job
         @args = args["args"].nil? ? [] : parse_args( args["args"] )
