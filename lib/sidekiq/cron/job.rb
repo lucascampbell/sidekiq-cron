@@ -173,7 +173,7 @@ module Sidekiq
           @last_enqueue_time = args['last_enqueue_time']
         else
           @last_enqueue_time = last_enqueue_time_from_redis
-        #end
+        end
 
         #get right arguments for job
         @args = args["args"].nil? ? [] : parse_args( args["args"] )
