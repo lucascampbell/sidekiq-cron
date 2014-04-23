@@ -170,7 +170,7 @@ module Sidekiq
 
         #set last enqueue time - from args or from existing job
         if args['last_enqueue_time'] && !args['last_enqueue_time'].empty?
-          @last_enqueue_time = args['last_enqueue_time']
+          @last_enqueue_time = Date.parse(args['last_enqueue_time'].strftime("%y-%m-%d"))
         else
           @last_enqueue_time = last_enqueue_time_from_redis
         end
